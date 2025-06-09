@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 
-const App = () => {
+const MovieCard = () => {
   return (
-    <div className="App">
+    <div className="MovieCard">
       
     </div>
   )
 }
 
-export default App
+export default MovieCard;
