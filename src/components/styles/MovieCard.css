@@ -1,0 +1,28 @@
+.MovieCard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  background-color: rgb(32, 32, 32);
+  width: 250px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  place-self: center;
+}
+
+.MovieCard:hover {
+  filter: drop-shadow(0 0 1em #000000);
+  transform: translate(0px, -10px);
+  transition: all 0.3s;
+}
+
+.CardImg {
+  height: 400px;
+  width: 250px;
+  border-radius: 10px;
+  img {
+    border-radius: 8px;
+    height: 400px;
+    width: 250px;
+  }
+}
