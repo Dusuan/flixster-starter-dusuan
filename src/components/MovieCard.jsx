@@ -5,7 +5,7 @@ const MovieCard = ({ imgURL, movieTitle, rating }) => {
   return (
     <div className="MovieCard">
       <div className="CardImg">
-        <img src={`https://image.tmdb.org/t/p/w500${imgURL}`} />
+        <img src={`${imgURL !== null ? `https://image.tmdb.org/t/p/w500${imgURL}` : "../../public/noimage.png"}`} />
       </div>
       <div>
         <h3>{movieTitle}</h3>
