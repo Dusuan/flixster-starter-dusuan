@@ -2,41 +2,21 @@ import "./styles/Modal.css";
 import { useEffect, useState } from "react";
 const Modal = ({
   handleModalClose,
-  runTime,
   original_title,
   poster_path = null,
   release_date = 0,
   id = 0,
   overview = "",
+  fetchMovieDetails,
 }) => {
   const AccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
-  const [genres, setGenres] = useState([]);
   const [videoKey, setVideoKey] = useState("");
+  const [genres, setGenres] = useState([]);
+  const [runTime, setRunTime] = useState(0);
 
-  const fetchGenres = async (id) => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${AccessToken}`,
-      },
-    };
-    try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-        options
-      );
-      if (!response.ok) {
-        throw new Error("Failed the fetch");
-      }
-      const data = await response.json();
-      setGenres(data.genres);
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
+ 
   const fetchVideo = async (id) => {
     const options = {
       method: "GET",
@@ -61,7 +41,7 @@ const Modal = ({
   };
 
   useEffect(() => {
-    fetchGenres(id);
+    fetchMovieDetails(id, setGenres, setRunTime);
     fetchVideo(id);
   }, []);
 
@@ -89,7 +69,7 @@ const Modal = ({
             }
           </div>
           <div className="infoSection">
-            <p>{runTime}</p>
+            <p>{runTime} minutes</p>
             <p>{release_date}</p>
             <p>{overview}</p>
             <div>

@@ -1,0 +1,8 @@
+.Footer{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
