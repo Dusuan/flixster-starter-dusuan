@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import MovieCard from "./MovieCard.jsx";
+import Modal from "./Modal.jsx"
 import "./styles/MovieList.css";
 import Data from "../data/data.js";
 
@@ -9,6 +10,8 @@ const MovieList = () => {
   const [moviePage, setMoviePage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchingMovies, setSearchingMovies] = useState(false);
+  const [isModalActive, setisModalActive] = useState(false)
+  const [ModalValues, setModalValues] = useState({})
 
   const ApiKey = import.meta.env.VITE_TMDB_API_KEY;
   const AccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
@@ -63,6 +66,13 @@ const MovieList = () => {
     setSearchQuery(event.target.value);
     console.log(searchQuery);
   };
+  const handleModalOpen = (movie) => {
+    setModalValues(movie)
+    setisModalActive(true)
+  }
+  const handleModalClose = () => {
+    setisModalActive(false)
+  }
   const LoadMore = async () => {
     setMoviePage((moviePage) => moviePage + 1);
     const count = moviePage + 1;
@@ -70,7 +80,6 @@ const MovieList = () => {
 
     setMovieData((movieData) => [...movieData, ...newData.results]);
   };
-
   const fetchPageMovie = async (page) => {
     let data;
     const options = {
@@ -118,7 +127,7 @@ const MovieList = () => {
       return <div>Something went wrong</div>;
     } else {
       return movieData?.map((movie) => (
-        <div key={movie.id}>
+        <div key={movie.id} onClick={() => handleModalOpen(movie)}>
           <MovieCard
             imgURL={movie.poster_path}
             movieTitle={movie.title}
@@ -151,7 +160,7 @@ const MovieList = () => {
         <button onClick={handleSearchMovies}>Search</button>
         <button onClick={handleCurrentlyPlaying}>Currently Playing</button>
       </div>
-      <div className="List">{renderMovies()}</div>
+      <div className="List">{renderMovies()}  {isModalActive ? <Modal handleModalClose={handleModalClose}{...ModalValues}/> : <></>}</div>
       <div>
         <button onClick={LoadMore}>Load More</button>
       </div>
