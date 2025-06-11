@@ -4,6 +4,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-right: 15%;
   margin-left: 15%;
   margin-top: 10%;
@@ -20,8 +21,19 @@
   z-index: 1; 
 }
 .imgSection{
-
+    img{
+        width: 300px;
+        height: auto;
+        border-radius: 20px;
+    }
 }
 .infoSection{
-    
+margin: 40px;
+text-align: center;
+width: 500px;
 }
+.modalTextImageSection{
+    display: flex;
+  flex-direction: row;
+}
+
