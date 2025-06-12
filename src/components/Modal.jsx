@@ -57,15 +57,15 @@ const Modal = ({
               src={`${
                 poster_path !== null
                   ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                  : "../../public/noimage.png"
+                  : "../../noimage.png"
               }`}
             ></img>
             {videoKey !== "" ? 
               <iframe
-                width={"420"}
-                height={"315"}
+                width={"800"}
+                height={"448"}
                 src={`https://www.youtube.com/embed/${videoKey}`}
-              ></iframe> : <p> No trailer found </p>
+              ></iframe> : <p className="noTrailer"> No trailer found </p>
             }
           </div>
           <div className="infoSection">

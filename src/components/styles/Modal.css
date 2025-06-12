@@ -1,4 +1,5 @@
-.modalContent {
+@media only screen and (max-width: 600px) {
+  .modalContent {
   color: white;
   padding: 40px;
   overflow: hidden;
@@ -21,6 +22,7 @@
   z-index: 1; 
 }
 .imgSection{
+  gap: 30px;
     img{
         width: 300px;
         height: auto;
@@ -29,11 +31,71 @@
 }
 .infoSection{
 margin: 40px;
+display: flex;
+flex-direction: column;
+justify-content: start;
 text-align: center;
 width: 500px;
 }
 .modalTextImageSection{
     display: flex;
-  flex-direction: row;
+    align-items: center;
+    flex-direction: column;
 }
 
+}
+
+
+
+.modalContent {
+  overflow: auto;
+  color: white;
+  padding: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  border-radius: 10px;
+  background-color: rgb(40, 40, 40);
+}
+.modal {
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10%;
+  position: fixed;
+  z-index: 1; 
+  overflow-y: auto;
+}
+.imgSection{
+  gap: 30px;
+    img{
+        width: 300px;
+        height: auto;
+        border-radius: 20px;
+    }
+}
+.infoSection{
+margin: 40px;
+display: flex;
+flex-direction: column;
+justify-content: start;
+text-align: center;
+width: 500px;
+}
+.modalTextImageSection{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.noTrailer{
+  width: 800;
+  height: 448;
+}

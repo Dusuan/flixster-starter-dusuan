@@ -15,7 +15,7 @@ const App = () => {
     setSearchQuery(event.target.value);
     console.log(searchQuery);
   };
-  const fetchDataCurrPlaying = async () => {
+  const fetchDataCurrPlaying = async (sort) => {
     setMovieData(() => []);
     const options = {
       method: "GET",
@@ -33,7 +33,9 @@ const App = () => {
         throw new Error("Failed the fetch");
       }
       const data = await response.json();
-      setMovieData(data.results);
+      let results = data.results;
+      results = Sort(sort, results)
+      setMovieData(results)
     } catch (e) {
       console.error(e);
     }
@@ -84,7 +86,7 @@ const App = () => {
     }
     return data;
   };
-   const fetchMovieDetails = async (id, setGenres, setRunTime) => {
+  const fetchMovieDetails = async (id, setGenres, setRunTime) => {
     const options = {
       method: "GET",
       headers: {
@@ -102,28 +104,56 @@ const App = () => {
       }
       const data = await response.json();
       setGenres(data.genres);
-      setRunTime(data.runtime)
+      setRunTime(data.runtime);
     } catch (e) {
       console.error(e);
     }
   };
 
+  const Sort = (filter, results) => {
+     if (filter === "byName") {
+        const filteredData = results.sort((a,b) => {
+          const x = a.title.toLowerCase();
+          const y = b.title.toLowerCase();
+          return x < y ? -1 : x > y ? 1 : 0;
+        });
+        return filteredData;
+      } else if (filter === "byReleaseDateDesc") {
+        const filteredData = results.sort((a,b) =>  {
+           const x = Date.parse(a.release_date)
+           const y = Date.parse(b.release_date)
+           return x - y;
+        })
+        return filteredData;
+      } else if (filter === "byVoteAvgDesc") {
+        const filteredData = results.sort((a,b) =>  {
+           return b.vote_average - a.vote_average;
+        })
+        return filteredData;
+      } else {
+        return results
+      }
+    return data;
+  };
 
+  const [sort, setSort] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchingMovies, setSearchingMovies] = useState(false);
   const [movieData, setMovieData] = useState([]);
   const [moviePage, setMoviePage] = useState(1);
 
-
-
   return (
     <div className="App">
       <Header
-      handleSearchChange={handleSearchChange}
-      searchQuery={searchQuery}
+        handleSearchChange={handleSearchChange}
+        searchQuery={searchQuery}
+        sort={sort}
+        setSort={setSort}
       />
 
       <MovieList
+        Sort={Sort}
+        sort={sort}
         searchQuery={searchQuery}
         fetchDataCurrPlaying={fetchDataCurrPlaying}
         fetchSearchMovies={fetchSearchMovies}

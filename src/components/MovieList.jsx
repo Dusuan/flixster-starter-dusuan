@@ -6,6 +6,8 @@ import "./styles/MovieList.css";
 import Data from "../data/data.js";
 
 const MovieList = ({
+  Sort,
+  sort,
   searchQuery,
   fetchDataCurrPlaying,
   fetchSearchMovies,
@@ -33,24 +35,26 @@ const MovieList = ({
   const LoadMore = async () => {
     setMoviePage((moviePage) => moviePage + 1);
     const count = moviePage + 1;
-    const newData = await fetchPageMovie(count);
+    let newData = {}
+    newData = await fetchPageMovie(count);
+    setMovieData((movieData) => Sort(sort, [...movieData, ...newData.results]))
 
-    setMovieData((movieData) => [...movieData, ...newData.results]);
   };
 
   useEffect(() => {
     fetchDataCurrPlaying();
   }, []);
   useEffect(() => {
-    if (!searchingMovies) {
+     if(!searchingMovies) {
       console.log("rendered Current");
-      fetchDataCurrPlaying();
-    } else {
+      fetchDataCurrPlaying(sort);
+    } else{
       console.log("rendered search");
       fetchSearchMovies(searchQuery);
     }
+    
     renderMovies();
-  }, [searchingMovies]);
+  }, [searchingMovies, sort]);
 
   const renderMovies = () => {
     if (searchingMovies && movieData.length < 1) {

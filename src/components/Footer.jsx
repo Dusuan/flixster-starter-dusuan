@@ -9,7 +9,7 @@ const Footer = () => {
       </div>
       <div>
         <div>
-          <a href={`https://www.themoviedb.org/?language=en-US`}>
+          <a target="_blank" href={`https://www.themoviedb.org/?language=en-US`}>
             <p>TMDB (Where all the data was obtained)</p>
           </a>
         </div>

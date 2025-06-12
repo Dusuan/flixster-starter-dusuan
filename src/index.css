@@ -1,13 +1,20 @@
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: local("HelveticaNeueLight"),
+  url("./fonts/HelveticaNeueLight.otf") format("truetype");
+  font-weight: lighter;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family:"HelveticaNeueLight";
   background-color: #f4f4f4;
 }
 
 button {
   width: 200px;
   height: 50px;
-  background-color:gold;
+  background-color:#ffd700;
   color: rgb(0, 0, 0);
   cursor: pointer;
   font-size: 16px;
@@ -16,6 +23,12 @@ button {
 }
 
 button:hover {
-  background-color: #777;
+  background-color: #333333;
   color: white;
 }
+/* 
+ between #3333333
+ grey    #787878
+ yellow  #FFD700
+ black   #000000
+*/

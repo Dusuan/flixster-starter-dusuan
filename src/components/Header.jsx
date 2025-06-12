@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles/Header.css";
 
-const Header = ({ searchQuery, handleSearchChange}) => {
+const Header = ({ searchQuery, handleSearchChange, sort, setSort}) => {
 
   return (
     <div className="Header">
@@ -15,10 +15,11 @@ const Header = ({ searchQuery, handleSearchChange}) => {
           value={searchQuery}
           onChange={handleSearchChange}
         ></input>
-        <select name="sorting" id="sorting" onChange={() => {}}>
-          <option value="name"> Sort by Name (A-Z)</option>
-          <option value="likes"> Sort by Release Date </option>
-          <option value="date"> Sort by Vote Average </option>
+        <select name="sorting" id="sorting" value={sort} onChange={(e) => {setSort(e.target.value)}}>
+          <option value="default"> Default </option>
+          <option value="byName"> Sort by Name (A-Z)</option>
+          <option value="byReleaseDateDesc"> Sort by Release Date </option>
+          <option value="byVoteAvgDesc"> Sort by Vote Average </option>
         </select>
       </div>
     </div>
