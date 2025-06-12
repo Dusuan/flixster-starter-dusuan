@@ -6,6 +6,7 @@ import "./styles/MovieList.css";
 import Data from "../data/data.js";
 import RenderMovies from './RenderMovies.jsx'
 
+
 const MovieList = ({
   Sort,
   sort,

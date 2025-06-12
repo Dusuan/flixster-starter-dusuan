@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import MovieList from "./components/MovieList";
 import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 
 const App = () => {
   const ApiKey = import.meta.env.VITE_TMDB_API_KEY;
@@ -116,20 +117,21 @@ const App = () => {
         return b.vote_average - a.vote_average;
       });
       return filteredData;
-    } else 
-      return results;
-    
-  }
-   const handleCurrentlyPlaying = () => {
+    } else return results;
+  };
+  const handleCurrentlyPlaying = () => {
     setMoviePage(1);
     setSearchingMovies(false);
   };
 
+  const [watchedMovies, setWatchedMovies] = useState({});
+  const [likedMovies, setLikedMovies] = useState({});
   const [sort, setSort] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchingMovies, setSearchingMovies] = useState(false);
   const [movieData, setMovieData] = useState([]);
   const [moviePage, setMoviePage] = useState(1);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   return (
     <div className="App">
@@ -140,8 +142,10 @@ const App = () => {
         searchQuery={searchQuery}
         sort={sort}
         setSort={setSort}
+        showSidebar={showSidebar}
+        setShowSidebar={setShowSidebar}
       />
-
+      {showSidebar ? <SideBar setShowSidebar={setShowSidebar} watchedMovies={watchedMovies} likedMovies={likedMovies} /> : <></>}
       <MovieList
         Sort={Sort}
         sort={sort}

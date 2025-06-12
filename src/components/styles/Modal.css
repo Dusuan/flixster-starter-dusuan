@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 1; 
+  z-index: 1000; 
 }
 .imgSection{
   gap: 30px;
@@ -71,7 +71,7 @@ width: 500px;
   height: 100%;
   margin-bottom: 10%;
   position: fixed;
-  z-index: 1; 
+  z-index: 1000; 
   overflow-y: auto;
 }
 .imgSection{

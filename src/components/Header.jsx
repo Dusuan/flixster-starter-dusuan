@@ -7,9 +7,17 @@ const Header = ({
   handleSearchMovies,
   handleCurrentlyPlaying,
   sort,
+  showSidebar,
+  setShowSidebar,
 
   setSort,
 }) => {
+
+
+  const handleOpenSideBar = () =>{
+    setShowSidebar(true);
+  }
+
   return (
     <div className="Header">
       <div>
@@ -42,6 +50,7 @@ const Header = ({
           <option value="byReleaseDateDesc"> Sort by Release Date </option>
           <option value="byVoteAvgDesc"> Sort by Vote Average </option>
         </select>
+        <button onClick={handleOpenSideBar}>Open Sidebar</button>
       </div>
     </div>
   );
