@@ -7,6 +7,13 @@ import Header from "./components/Header";
 const App = () => {
   const ApiKey = import.meta.env.VITE_TMDB_API_KEY;
   const AccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
+  const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `${AccessToken}`,
+      },
+    };
   const handleSearchMovies = () => {
     setSearchingMovies(true);
     fetchSearchMovies(searchQuery);
@@ -16,14 +23,7 @@ const App = () => {
     console.log(searchQuery);
   };
   const fetchDataCurrPlaying = async (sort) => {
-    setMovieData(() => []);
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${AccessToken}`,
-      },
-    };
+    setMovieData([]);
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${moviePage}&api_key=${ApiKey}`,
@@ -65,13 +65,6 @@ const App = () => {
   };
   const fetchPageMovie = async (page) => {
     let data;
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${AccessToken}`,
-      },
-    };
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${ApiKey}`,
@@ -87,13 +80,6 @@ const App = () => {
     return data;
   };
   const fetchMovieDetails = async (id, setGenres, setRunTime) => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${AccessToken}`,
-      },
-    };
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?language=en-US`,

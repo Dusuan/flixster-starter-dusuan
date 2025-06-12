@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard.jsx";
 import Modal from "./Modal.jsx";
 import "./styles/MovieList.css";
 import Data from "../data/data.js";
+import RenderMovies from './RenderMovies.jsx'
 
 const MovieList = ({
   Sort,
@@ -21,7 +22,6 @@ const MovieList = ({
   moviePage,
   fetchMovieDetails,
 }) => {
-
   const [isModalActive, setisModalActive] = useState(false);
   const [ModalValues, setModalValues] = useState({});
 
@@ -35,45 +35,25 @@ const MovieList = ({
   const LoadMore = async () => {
     setMoviePage((moviePage) => moviePage + 1);
     const count = moviePage + 1;
-    let newData = {}
+    let newData = {};
     newData = await fetchPageMovie(count);
-    setMovieData((movieData) => Sort(sort, [...movieData, ...newData.results]))
-
+    setMovieData((movieData) => Sort(sort, [...movieData, ...newData.results]));
   };
 
   useEffect(() => {
     fetchDataCurrPlaying();
   }, []);
   useEffect(() => {
-     if(!searchingMovies) {
+    if (!searchingMovies) {
       console.log("rendered Current");
       fetchDataCurrPlaying(sort);
-    } else{
+    } else {
       console.log("rendered search");
       fetchSearchMovies(searchQuery);
     }
-    
-    renderMovies();
   }, [searchingMovies, sort]);
 
-  const renderMovies = () => {
-    if (searchingMovies && movieData.length < 1) {
-      return <div>No movies found!</div>;
-    }
-    if (!movieData) {
-      return <div>Something went wrong</div>;
-    } else {
-      return movieData?.map((movie) => (
-        <div key={movie.id} onClick={() => handleModalOpen(movie)}>
-          <MovieCard
-            imgURL={movie.poster_path}
-            movieTitle={movie.title}
-            rating={movie.vote_average}
-          />
-        </div>
-      ));
-    }
-  };
+  
   const handleCurrentlyPlaying = () => {
     setMoviePage(1);
     setSearchingMovies(false);
@@ -87,9 +67,13 @@ const MovieList = ({
         <button onClick={handleCurrentlyPlaying}>Currently Playing</button>
       </div>
       <div className="List">
-        {renderMovies()}{" "}
+        <RenderMovies movieData={movieData} searchingMovies={searchingMovies} />{" "}
         {isModalActive ? (
-          <Modal handleModalClose={handleModalClose} {...ModalValues} fetchMovieDetails={fetchMovieDetails} />
+          <Modal
+            handleModalClose={handleModalClose}
+            {...ModalValues}
+            fetchMovieDetails={fetchMovieDetails}
+          />
         ) : (
           <></>
         )}
