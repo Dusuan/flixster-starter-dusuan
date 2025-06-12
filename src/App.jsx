@@ -8,12 +8,12 @@ const App = () => {
   const ApiKey = import.meta.env.VITE_TMDB_API_KEY;
   const AccessToken = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
   const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${AccessToken}`,
-      },
-    };
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `${AccessToken}`,
+    },
+  };
   const handleSearchMovies = () => {
     setSearchingMovies(true);
     fetchSearchMovies(searchQuery);
@@ -34,8 +34,8 @@ const App = () => {
       }
       const data = await response.json();
       let results = data.results;
-      results = Sort(sort, results)
-      setMovieData(results)
+      results = Sort(sort, results);
+      setMovieData(results);
     } catch (e) {
       console.error(e);
     }
@@ -97,29 +97,32 @@ const App = () => {
   };
 
   const Sort = (filter, results) => {
-     if (filter === "byName") {
-        const filteredData = results.sort((a,b) => {
-          const x = a.title.toLowerCase();
-          const y = b.title.toLowerCase();
-          return x < y ? -1 : x > y ? 1 : 0;
-        });
-        return filteredData;
-      } else if (filter === "byReleaseDateDesc") {
-        const filteredData = results.sort((a,b) =>  {
-           const x = Date.parse(a.release_date)
-           const y = Date.parse(b.release_date)
-           return x - y;
-        })
-        return filteredData;
-      } else if (filter === "byVoteAvgDesc") {
-        const filteredData = results.sort((a,b) =>  {
-           return b.vote_average - a.vote_average;
-        })
-        return filteredData;
-      } else {
-        return results
-      }
-    return data;
+    if (filter === "byName") {
+      const filteredData = results.sort((a, b) => {
+        const x = a.title.toLowerCase();
+        const y = b.title.toLowerCase();
+        return x < y ? -1 : x > y ? 1 : 0;
+      });
+      return filteredData;
+    } else if (filter === "byReleaseDateDesc") {
+      const filteredData = results.sort((a, b) => {
+        const x = Date.parse(a.release_date);
+        const y = Date.parse(b.release_date);
+        return x - y;
+      });
+      return filteredData;
+    } else if (filter === "byVoteAvgDesc") {
+      const filteredData = results.sort((a, b) => {
+        return b.vote_average - a.vote_average;
+      });
+      return filteredData;
+    } else 
+      return results;
+    
+  }
+   const handleCurrentlyPlaying = () => {
+    setMoviePage(1);
+    setSearchingMovies(false);
   };
 
   const [sort, setSort] = useState("default");
@@ -131,6 +134,8 @@ const App = () => {
   return (
     <div className="App">
       <Header
+        handleCurrentlyPlaying={handleCurrentlyPlaying}
+        handleSearchMovies={handleSearchMovies}
         handleSearchChange={handleSearchChange}
         searchQuery={searchQuery}
         sort={sort}

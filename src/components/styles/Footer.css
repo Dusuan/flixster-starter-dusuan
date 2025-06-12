@@ -1,8 +1,13 @@
 .Footer{
+    color: white;
     display: flex;
     flex-direction: row;
     gap: 30px;
     align-items: center;
     justify-content: center;
     height: 200px;
+    background-color: #333333;
+    a{
+        color: aliceblue;
+    }
 }

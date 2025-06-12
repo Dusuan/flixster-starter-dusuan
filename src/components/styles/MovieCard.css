@@ -5,13 +5,14 @@
   color: white;
   background-color: rgb(32, 32, 32);
   width: 250px;
+  height: 500px;
   border-radius: 10px;
   transition: all 0.3s;
   place-self: center;
 }
 
 .MovieCard:hover {
-  filter: drop-shadow(0 0 1em #000000);
+  filter: drop-shadow(0 0 1em #FFD700);
   transform: translate(0px, -10px);
   transition: all 0.3s;
 }
@@ -25,4 +26,14 @@
     height: 400px;
     width: 250px;
   }
+}
+.rating{
+  p{
+    margin-top: 5px;
+  }
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }

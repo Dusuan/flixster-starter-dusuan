@@ -4,6 +4,9 @@
   url("./fonts/HelveticaNeueLight.otf") format("truetype");
   font-weight: lighter;
 }
+p{
+  margin:0;
+}
 
 body {
   margin: 0;

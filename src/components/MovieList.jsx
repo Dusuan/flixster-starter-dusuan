@@ -54,17 +54,12 @@ const MovieList = ({
   }, [searchingMovies, sort]);
 
   
-  const handleCurrentlyPlaying = () => {
-    setMoviePage(1);
-    setSearchingMovies(false);
-  };
+ 
 
   return (
     <div className="MovieList">
-      <h1>Movie List</h1>
       <div>
-        <button onClick={handleSearchMovies}>Search</button>
-        <button onClick={handleCurrentlyPlaying}>Currently Playing</button>
+       
       </div>
       <div className="List">
         <RenderMovies handleModalOpen={handleModalOpen} movieData={movieData} searchingMovies={searchingMovies} />{" "}
