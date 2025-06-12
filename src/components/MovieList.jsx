@@ -67,7 +67,7 @@ const MovieList = ({
         <button onClick={handleCurrentlyPlaying}>Currently Playing</button>
       </div>
       <div className="List">
-        <RenderMovies movieData={movieData} searchingMovies={searchingMovies} />{" "}
+        <RenderMovies handleModalOpen={handleModalOpen} movieData={movieData} searchingMovies={searchingMovies} />{" "}
         {isModalActive ? (
           <Modal
             handleModalClose={handleModalClose}

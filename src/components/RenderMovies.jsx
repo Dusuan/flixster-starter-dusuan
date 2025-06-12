@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
 
-const RenderMovies = ({movieData, searchingMovies}) => {
+const RenderMovies = ({handleModalOpen, movieData, searchingMovies}) => {
      if (searchingMovies && movieData.length < 1) {
       return <div>No movies found!</div>;
     }
