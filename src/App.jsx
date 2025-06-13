@@ -134,6 +134,7 @@ const App = () => {
     fetchDataCurrPlaying();
     setMoviePage(1);
     setSearchingMovies(false);
+    setSearchQuery("")
   };
 
   

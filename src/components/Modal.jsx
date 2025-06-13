@@ -57,6 +57,7 @@ const Modal = ({
         <div className="modalTextImageSection">
           <div className="imgSection">
             <img
+              alt={`Poster for: ${original_title}`}
               src={`${
                 poster_path !== null
                   ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -75,14 +76,26 @@ const Modal = ({
             )}
           </div>
           <div className="infoSection">
-            <p>{runTime} minutes</p>
-            <p>{release_date}</p>
-            <p>{overview}</p>
             <div>
-              <p> Genres :</p>
-              {genres.map((genre) => {
-                return <p key={genre.id}>{genre.name}</p>;
-              })}
+              <p>{runTime} minutes</p>
+              <p>{release_date}</p>
+            </div>
+            <div>
+              <p>{overview}</p>
+            </div>
+            <div>
+              <p>
+                <strong> Genres :</strong>
+              </p>
+              <div className="genreContainer">
+                {genres.map((genre) => {
+                  return (
+                    <p className="Genre" key={genre.id}>
+                      {genre.name}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
