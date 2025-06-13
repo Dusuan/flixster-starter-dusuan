@@ -23,7 +23,7 @@ const MovieCard = ({ imgURL, movieTitle, movieData, rating }) => {
           src={`${
             imgURL !== null
               ? `https://image.tmdb.org/t/p/w500${imgURL}`
-              : "../../public/noimage.png"
+              : "../../noimage.png"
           }`}
         />
       </div>
