@@ -15,8 +15,6 @@ const Modal = ({
   const [genres, setGenres] = useState([]);
   const [runTime, setRunTime] = useState(0);
 
-
- 
   const fetchVideo = async (id) => {
     const options = {
       method: "GET",
@@ -34,7 +32,12 @@ const Modal = ({
         throw new Error("Failed the fetch");
       }
       const data = await response.json();
-      setVideoKey(data.results[0].key);
+
+      const filteredData = data.results.filter((videos) => {
+        return (videos.official = true && videos.type === "Trailer");
+      });
+
+      setVideoKey(filteredData[0].key);
     } catch (e) {
       console.error(e);
     }
@@ -60,14 +63,16 @@ const Modal = ({
                   : "../../noimage.png"
               }`}
             ></img>
-            {videoKey !== "" ? 
+            {videoKey !== "" ? (
               <iframe
                 className="Iframe"
                 width={"800"}
                 height={"448"}
                 src={`https://www.youtube.com/embed/${videoKey}`}
-              ></iframe> : <p className="noTrailer"> No trailer found </p>
-            }
+              ></iframe>
+            ) : (
+              <p className="noTrailer"> No trailer found </p>
+            )}
           </div>
           <div className="infoSection">
             <p>{runTime} minutes</p>

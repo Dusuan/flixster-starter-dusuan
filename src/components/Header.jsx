@@ -24,7 +24,7 @@ const Header = ({
       <div className="HeaderContent">
         <div>
           <button onClick={handleSearchMovies}>Search</button>
-          <button onClick={handleCurrentlyPlaying}>Currently Playing</button>
+          <button onClick={handleCurrentlyPlaying}>Clear</button>
         </div>
         <div style={{display: "flex", alignItems: "center", gap: "20px"}}>
           <div>
