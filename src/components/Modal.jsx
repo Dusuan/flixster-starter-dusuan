@@ -62,6 +62,7 @@ const Modal = ({
             ></img>
             {videoKey !== "" ? 
               <iframe
+                className="Iframe"
                 width={"800"}
                 height={"448"}
                 src={`https://www.youtube.com/embed/${videoKey}`}

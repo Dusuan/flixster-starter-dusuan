@@ -63,7 +63,7 @@ const MovieList = ({
        
       </div>
       <div className="List">
-        <RenderMovies handleModalOpen={handleModalOpen} movieData={movieData} searchingMovies={searchingMovies} />{" "}
+        <RenderMovies handleModalOpen={handleModalOpen} movieData={movieData} searchingMovies={searchingMovies} />
         {isModalActive ? (
           <Modal
             handleModalClose={handleModalClose}

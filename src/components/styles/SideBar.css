@@ -8,12 +8,27 @@
   position: fixed;
   z-index: 1000;
   overflow-y: auto;
+  transition: all 0.3s;
 }
-.SideBarContent{
-    padding: 40px;
-    justify-self: right;
-    height: 100%;
-    width: 30%;
-    color: white;
-    background-color: #333333;
+.SideBarContent {
+  padding: 40px;
+  justify-self: right;
+  height: 100%;
+  width: 30%;
+  color: white;
+  background-color: #333333;
+}
+.TitleButton:hover {
+  filter: drop-shadow(0 0 0.5em #ffd700);
+  transition: all 0.3s;
+  color: gold;
+}
+.TitleButton {
+  transition: all 0.3s;
+}
+
+@media only screen and (max-width: 950px) {
+ .btn{
+    width: 100px;
+  }
 }

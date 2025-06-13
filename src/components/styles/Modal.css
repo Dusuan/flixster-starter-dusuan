@@ -1,52 +1,3 @@
-@media only screen and (max-width: 600px) {
-  .modalContent {
-  color: white;
-  padding: 40px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 15%;
-  margin-left: 15%;
-  margin-top: 10%;
-  border-radius: 10px;
-  background-color: rgb(40, 40, 40);
-}
-.modal {
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 1000; 
-}
-.imgSection{
-  gap: 30px;
-    img{
-        width: 300px;
-        height: auto;
-        border-radius: 20px;
-    }
-}
-.infoSection{
-margin: 40px;
-display: flex;
-flex-direction: column;
-justify-content: start;
-text-align: center;
-width: 500px;
-}
-.modalTextImageSection{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-}
-
-
-
 .modalContent {
   overflow: auto;
   color: white;
@@ -71,31 +22,56 @@ width: 500px;
   height: 100%;
   margin-bottom: 10%;
   position: fixed;
-  z-index: 1000; 
+  z-index: 1000;
   overflow-y: auto;
 }
-.imgSection{
+.imgSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
-    img{
-        width: 300px;
-        height: auto;
-        border-radius: 20px;
-    }
+  img {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+  }
 }
-.infoSection{
-margin: 40px;
-display: flex;
-flex-direction: column;
-justify-content: start;
-text-align: center;
-width: 500px;
+.infoSection {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  width: 500px;
 }
-.modalTextImageSection{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.modalTextImageSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.noTrailer{
+.noTrailer {
   width: 800;
   height: 448;
+}
+
+@media only screen and (max-width: 600px) {
+  .imgSection {
+    flex-direction: column;
+
+    gap: 30px;
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 20px;
+    }
+  }
+  .noTrailer {
+    width: 800;
+    height: 448;
+  }
+  .Iframe {
+    width: auto;
+    height: 200px;
+  }
 }

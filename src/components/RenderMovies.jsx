@@ -10,6 +10,7 @@ const RenderMovies = ({handleModalOpen, movieData, searchingMovies}) => {
     return movieData?.map((movie) => (
       <div key={movie.id} onClick={() => handleModalOpen(movie)}>
         <MovieCard
+          movieData={movie}
           imgURL={movie.poster_path}
           movieTitle={movie.title}
           rating={movie.vote_average}
