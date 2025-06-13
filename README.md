@@ -102,9 +102,9 @@ Deployed Application (**https://flixster-dusuan.onrender.com/**): [Flixster Depl
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+[![Project video](https://img.youtube.com/vi/zYJaMYmgKOU/0.jpg)](https://youtu.be/zYJaMYmgKOU)
+
 
 ### Reflection
 
@@ -121,7 +121,7 @@ more indicators on the info and making the page more responsive to interaction s
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Did pretty well, explained all the relevant features and was very fluent in the video, felt more confident than last time
 
 ### Open-source libraries used
 
@@ -131,4 +131,4 @@ Only React DOM, else is Vanilla React
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-Shout out again to Jesus for helping me out on some coding questions and to Bob for claryfing me stuff i didn't get that much
+Shout out again to Jesus for helping me out on some coding questions and to Bob for claryfing me stuff i didn't understood that much
