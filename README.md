@@ -35,7 +35,7 @@ Deployed Application (**https://flixster-dusuan.onrender.com/**): [Flixster Depl
   - [x] Website implements all of the following accessibility features:
     - [x] Semantic HTML
     - [x] [Color contrast](https://webaim.org/resources/contrastchecker/)
-    - [ ] Alt text for images 
+    - [x] Alt text for images 
   - [x] Website implements responsive web design.
     - [x] Uses CSS Flexbox or CSS Grid
     - [x] Movie tiles and images shrink/grow in response to window size
@@ -110,11 +110,14 @@ Deployed Application (**https://flixster-dusuan.onrender.com/**): [Flixster Depl
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, we saw everything we needed that was useful for the project, for example the way to store states and update them, as well as how the way react can only pass
+information and states from up to bottom, the only thing i might have been a little unprepared for were the API calls because i think those were the only complex thing
+that it wasn't explained as thoroughly but overall managed to access the api data with no problem.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I liked how i did it, had enough time to implement all i wanted, maybe some animations when the side bar is loaded but overall, improved the things i was prompted to by my classmates, such as having 
+more indicators on the info and making the page more responsive to interaction such as hovering trough the movie cards
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -122,8 +125,10 @@ Add your response here
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+Only React DOM, else is Vanilla React
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+Shout out again to Jesus for helping me out on some coding questions and to Bob for claryfing me stuff i didn't get that much
