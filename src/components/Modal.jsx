@@ -77,8 +77,8 @@ const Modal = ({
           </div>
           <div className="infoSection">
             <div>
-              <p>{runTime} minutes</p>
-              <p>{release_date}</p>
+              <p>Duration : {runTime} minutes</p>
+              <p>Release date : {release_date}</p>
             </div>
             <div>
               <p>{overview}</p>

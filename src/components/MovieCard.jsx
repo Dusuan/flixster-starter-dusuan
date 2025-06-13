@@ -20,6 +20,7 @@ const MovieCard = ({ imgURL, movieTitle, movieData, rating }) => {
     <div className="MovieCard">
       <div className="CardImg">
         <img
+        alt={`Image for ${movieTitle}`}
           src={`${
             imgURL !== null
               ? `https://image.tmdb.org/t/p/w500${imgURL}`
